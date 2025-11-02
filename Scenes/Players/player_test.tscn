@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://clqv27p71woh7"]
+[gd_scene load_steps=2 format=3 uid="uid://clqv27p71woh7"]
+
+[ext_resource type="Script" uid="uid://d0hf5inged82p" path="res://Scenes/Players/player_test.gd" id="1_s7djo"]
 
 [node name="Player_test" type="CharacterBody2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_s7djo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
