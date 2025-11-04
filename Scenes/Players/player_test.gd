@@ -1,8 +1,14 @@
 extends CharacterBody2D
 class_name Player_test_class
 
+@export var stats : Stats
 const SPEED: int = 200
 var direction : Vector2
+var enemy_in_attack_range : bool = false
+var enemy_attack_cooldown : bool = true
+var health = 100
+var player_alive : bool = true
+
 
 func _process(_delta: float) -> void:
 	direction = Vector2.ZERO
@@ -18,5 +24,21 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	velocity = direction * SPEED
+	enemy_attack();
 	#AnimatePlayer()
 	move_and_slide()
+
+func player():
+	pass
+
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_in_attack_range = true
+
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_in_attack_range = false
+
+func enemy_attack():
+	if enemy_in_attack_range:
+		print("funcionando")

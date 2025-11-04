@@ -15,6 +15,11 @@ run/main_scene="uid://bvlux6ifb3p6n"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Player=""
+enemy=""
+
 [input]
 
 move_left={
