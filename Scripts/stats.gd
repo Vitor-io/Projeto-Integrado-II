@@ -7,6 +7,11 @@ enum BuffableStats {
 	ATTACK,
 }
 
+enum Faction {
+	PLAYER,
+	ENEMY,
+}
+
 const STAT_CURVES: Dictionary[BuffableStats, Curve] = {
 	BuffableStats.MAX_HEALTH: preload("uid://thuvlxlacrcu"),
 	BuffableStats.DEFENSE: preload("uid://do40lgyq8jhts"),
@@ -22,12 +27,13 @@ signal health_changed(cur_health: int, max_health : int)
 @export var base_defense: int = 10
 @export var base_attack: int = 10
 @export var experience: int = 0: set = _on_experience_set
+@export var faction: Faction = Faction.PLAYER
 
 var level: int: 
 	get(): return floor(max(1.0, sqrt(experience / BASE_LEVEL_XP) + 0.5))
 var current_max_health: int = 100
 var current_defense: int = 10
-var current_attack: int = 10
+var current_attack: int = 100
 
 var health: int = 0: set = _on_health_set
 
@@ -39,6 +45,10 @@ func _init() -> void:
 func setup_stats() -> void:
 	recalculate_stats()
 	health = current_max_health
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("damage taken")
 
 
 func add_buff(buff: StatBuff) -> void:

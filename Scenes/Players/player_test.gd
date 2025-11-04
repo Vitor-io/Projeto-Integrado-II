@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player_test_class
 
+@export var hitbox_shape : Shape2D
 @export var stats : Stats
 const SPEED: int = 200
 var direction : Vector2
@@ -9,6 +10,10 @@ var enemy_attack_cooldown : bool = true
 var health = 100
 var player_alive : bool = true
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack") and not event.is_echo():
+		var hitbox = Hitbox.new(stats, 0.5, hitbox_shape)
+		add_child(hitbox)
 
 func _process(_delta: float) -> void:
 	direction = Vector2.ZERO

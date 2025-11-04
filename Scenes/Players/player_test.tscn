@@ -4,34 +4,28 @@
 [ext_resource type="Script" uid="uid://ca16prxqi38mu" path="res://Scripts/stats.gd" id="2_4yt4t"]
 [ext_resource type="Texture2D" uid="uid://4m6lf0nhxlri" path="res://icon.svg" id="2_s7djo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vfsu"]
+custom_solver_bias = 1.0
+radius = 150.0
+
 [sub_resource type="Resource" id="Resource_4yt4t"]
 resource_local_to_scene = true
 script = ExtResource("2_4yt4t")
+base_attack = 50
 metadata/_custom_type_script = "uid://ca16prxqi38mu"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yt4t"]
 radius = 63.1981
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s7djo"]
-radius = 121.037186
-
 [node name="Player_test" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_s7djo")
+hitbox_shape = SubResource("CircleShape2D_7vfsu")
 stats = SubResource("Resource_4yt4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_s7djo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_4yt4t")
-
-[node name="player_hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-shape = SubResource("CircleShape2D_s7djo")
-
-[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
-[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
