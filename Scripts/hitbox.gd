@@ -1,9 +1,10 @@
 class_name Hitbox extends Area2D
 
+# Hitbox é a que ataca
 var attacker_stats: Stats
 var hitbox_lifetime: float
 var shape: Shape2D
-#note: add hitbox logging
+
 
 func _init(_attacker_stats: Stats, _hitbox_lifetime: float, _shape: Shape2D) -> void:
 	attacker_stats = _attacker_stats
@@ -35,8 +36,6 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if not area.has_method("receive_hit"):
-		return
-		
-	area.receive_hit(attacker_stats.current_attack)
-	print("on_area_entered_Hitbox")
+	print("conectou hitbox: ", area)
+	if area.has_method("receive_hit"):
+		area.receive_hit(attacker_stats.current_attack)

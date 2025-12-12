@@ -1,0 +1,161 @@
+[gd_scene load_steps=22 format=3 uid="uid://brxhfkha1f3vv"]
+
+[ext_resource type="Texture2D" uid="uid://diq5x18yv5ext" path="res://PurpleGoat/cabra-Sheet.png" id="1_fm7n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ineb"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(0, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mbxh"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(82, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjyce"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(164, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8vvx"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(246, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qcqo"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(328, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi210"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(410, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmx4q"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(492, 210, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57hxv"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(0, 70, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqvta"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(82, 70, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xne21"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(164, 70, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8f0r"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(246, 70, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1yad"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(0, 140, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnpgt"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(82, 140, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17du5"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(164, 140, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwubr"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(246, 140, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkavg"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(328, 140, 82, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmrvh"]
+atlas = ExtResource("1_fm7n8")
+region = Rect2(410, 140, 82, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bftue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ineb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mbxh")
+}, {
+"duration": 1.51,
+"texture": SubResource("AtlasTexture_cjyce")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_y8vvx")
+}, {
+"duration": 0.41,
+"texture": SubResource("AtlasTexture_3qcqo")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mi210")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmx4q")
+}],
+"loop": true,
+"name": &"goatattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57hxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqvta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xne21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8f0r")
+}],
+"loop": true,
+"name": &"goatidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1yad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnpgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17du5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwubr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkavg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmrvh")
+}],
+"loop": true,
+"name": &"goatwalk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8tsg"]
+size = Vector2(56, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ihab"]
+size = Vector2(39, 34)
+
+[node name="PurpGoat" type="CharacterBody2D"]
+
+[node name="Animações" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bftue")
+animation = &"goatattack"
+frame_progress = 0.65932745
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3.5)
+shape = SubResource("RectangleShape2D_f8tsg")
+
+[node name="Hitbox (Começa no frame 2)" type="CollisionShape2D" parent="."]
+position = Vector2(-20, -6)
+shape = SubResource("RectangleShape2D_3ihab")
