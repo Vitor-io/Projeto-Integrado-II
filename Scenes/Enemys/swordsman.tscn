@@ -1,15 +1,14 @@
 [gd_scene load_steps=33 format=3 uid="uid://dwasvj1tk6k82"]
 
-[ext_resource type="Script" uid="uid://36bo764cms2n" path="res://Scenes/Enemys/swordsman.gd" id="1_451bm"]
-[ext_resource type="Script" uid="uid://ca16prxqi38mu" path="res://Scripts/stats.gd" id="2_1t7hl"]
+[ext_resource type="Script" uid="uid://36bo764cms2n" path="res://Scripts/swordsman.gd" id="1_451bm"]
+[ext_resource type="Script" uid="uid://ch40jkx0ap5rw" path="res://enemy_stats.gd" id="2_1t7hl"]
 [ext_resource type="Texture2D" uid="uid://diq5x18yv5ext" path="res://Assets/characters/PurpleGoat/cabra-Sheet.png" id="3_r2ynh"]
-[ext_resource type="Script" uid="uid://dno6ulkm3mskp" path="res://Scripts/hurtbox.gd" id="4_r2ynh"]
 
 [sub_resource type="Resource" id="Resource_r2ynh"]
 resource_local_to_scene = true
 script = ExtResource("2_1t7hl")
-faction = 1
-metadata/_custom_type_script = "uid://ca16prxqi38mu"
+speed = 150.0
+metadata/_custom_type_script = "uid://ch40jkx0ap5rw"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2ynh"]
 bg_color = Color(0, 0, 0, 1)
@@ -155,70 +154,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxihw"]
-radius = 24.0
+radius = 28.442924
 
 [sub_resource type="Animation" id="Animation_vqsd3"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
 
 [sub_resource type="Animation" id="Animation_uxihw"]
 resource_name = "attack"
 length = 0.4
 step = 0.1
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -226,13 +177,13 @@ tracks/2/keys = {
 "method": &"ChangeState"
 }]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -240,13 +191,13 @@ tracks/3/keys = {
 "method": &"play"
 }]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Timer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Timer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -260,37 +211,13 @@ resource_name = "idle"
 length = 0.8
 loop_mode = 1
 step = 0.1
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -303,37 +230,13 @@ tracks/2/keys = {
 resource_name = "run"
 length = 0.6
 step = 0.1
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -350,17 +253,22 @@ _data = {
 &"run": SubResource("Animation_pdbhw")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_451bm"]
-radius = 75.10659
+[sub_resource type="GDScript" id="GDScript_451bm"]
+script/source = "extends Area2D
+"
 
-[node name="Swordsman" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_451bm"]
+radius = 33.13608
+
+[node name="Swordsman" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_451bm")
 stats = SubResource("Resource_r2ynh")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -38.0
 offset_top = -46.0
 offset_right = 42.0
@@ -374,16 +282,10 @@ show_percentage = false
 sprite_frames = SubResource("SpriteFrames_1cfgy")
 animation = &"attackanim"
 autoplay = "idleanim"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_r2ynh")
-hframes = 4
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_uxihw")
-metadata/_edit_lock_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
@@ -398,9 +300,19 @@ wait_time = 0.8
 one_shot = true
 
 [node name="swordsman_hitbox" type="Area2D" parent="."]
-script = ExtResource("4_r2ynh")
+collision_layer = 2
+collision_mask = 4
+script = SubResource("GDScript_451bm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swordsman_hitbox" groups=["enemy"]]
 shape = SubResource("CircleShape2D_451bm")
 
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="swordsman_hitbox" to="." method="_on_swordsman_hitbox_area_entered"]
+[connection signal="area_exited" from="swordsman_hitbox" to="." method="_on_swordsman_hitbox_area_exited"]
+[connection signal="body_entered" from="swordsman_hitbox" to="." method="_on_swordsman_hitbox_body_entered"]
+[connection signal="body_exited" from="swordsman_hitbox" to="." method="_on_swordsman_hitbox_body_exited"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
