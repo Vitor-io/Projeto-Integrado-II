@@ -10,5 +10,6 @@ extends Node2D
 
 func _on_timer_timeout():
 	var enemy = enemy_prefab.instantiate()
-	enemy.player_ref = target
-	add_child(enemy)
+	if target:
+		enemy.player_ref = target
+		add_child(enemy)

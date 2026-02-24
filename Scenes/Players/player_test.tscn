@@ -5,11 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://434a0beg636" path="res://Assets/characters/ataque1.png" id="3_4yt4t"]
 
 [sub_resource type="Resource" id="Resource_7vfsu"]
+resource_local_to_scene = true
 script = ExtResource("2_4yt4t")
 metadata/_custom_type_script = "uid://cgl8s1kr8b67y"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7djo"]
-radius = 34.132095
+radius = 37.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yt4t"]
 radius = 36.124783

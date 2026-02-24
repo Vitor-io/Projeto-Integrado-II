@@ -1,0 +1,168 @@
+[gd_scene load_steps=22 format=3 uid="uid://ct1tdoe6436cr"]
+
+[ext_resource type="Texture2D" uid="uid://b0uyg6obhcknd" path="res://Cerbero/Cerberoanim-Sheet.png" id="1_fg2yg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ca40"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(217, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88e3o"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(434, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i04cw"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(651, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyoik"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(0, 656, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2bmm"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(0, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isgaq"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(217, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgf70"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(434, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7hcj"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(651, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6wvt"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(868, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cyni"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(0, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gow0j"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(217, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_337je"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(434, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpq5m"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(651, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxkql"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(868, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2h4i"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(1085, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2576"]
+atlas = ExtResource("1_fg2yg")
+region = Rect2(1302, 328, 217, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0yvj"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5ca40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88e3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i04cw")
+}],
+"loop": true,
+"name": &"cerbattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nyoik")
+}],
+"loop": true,
+"name": &"cerbattackfogo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.41,
+"texture": SubResource("AtlasTexture_i2bmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isgaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgf70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7hcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6wvt")
+}],
+"loop": true,
+"name": &"cerbidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cyni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gow0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_337je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpq5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxkql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2h4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2576")
+}],
+"loop": true,
+"name": &"cerbwalk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkdg0"]
+size = Vector2(172, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xishm"]
+size = Vector2(228.19247, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cauio"]
+size = Vector2(259, 43.5)
+
+[node name="Cerbero" type="CharacterBody2D"]
+
+[node name="animações" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l0yvj")
+animation = &"cerbwalk"
+frame_progress = 0.6099421
+
+[node name="hurtbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-11, -3)
+shape = SubResource("RectangleShape2D_nkdg0")
+
+[node name="hitbox(normal)" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-5.903763, 42)
+shape = SubResource("RectangleShape2D_xishm")
+
+[node name="hitbox(fogo)" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 59.75)
+shape = SubResource("RectangleShape2D_cauio")

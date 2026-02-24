@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://r6ix0u3sufsj"]
+
+[ext_resource type="Script" uid="uid://bwm6nwai6nklq" path="res://startscreen.gd" id="1_a8mag"]
+[ext_resource type="Texture2D" uid="uid://mgqdrpsloira" path="res://Assets/WhatsApp Image 2026-02-21 at 20.08.15.jpeg" id="2_0m81h"]
+
+[node name="startscreen" type="CanvasLayer"]
+script = ExtResource("1_a8mag")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.5
+offset_top = -371.5
+offset_right = 492.5
+offset_bottom = 371.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0m81h")
+
+[node name="start" type="Button" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 535.0
+offset_top = 229.0
+offset_right = -571.0
+offset_bottom = -388.0
+text = "Start"
+
+[node name="quit" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 535.0
+offset_top = 303.0
+offset_right = -571.0
+offset_bottom = -314.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

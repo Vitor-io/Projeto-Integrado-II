@@ -9,31 +9,28 @@ class_name Player_test_class
 @onready var ataque1_sheet := load("res://Assets/characters/ataque1.png")
 @onready var ataque2_sheet := load("res://Assets/characters/ataque2.png")
 @export var stats = Resource
+var current_health : float = 0
+var current_damage : float = 0
+var current_attack : float = 0
+var current_defense : float = 0
 var attacking := false
 var direction : Vector2
 var enemy_in_attack_range : bool = false
 var enemy_attack_cooldown : bool = true
 var player_alive : bool = true
-var current_state : STATE
+
 var dashing : bool = false
 var can_dash : bool = true
-var current_health : float = 0
-var current_damage : float = 0
-var current_attack : float = 0
-var current_defense : float = 0
-enum STATE {
-	IDLE,
-	ANDANDO,
-	ATAQUE1,
-	ATAQUE2,
-}
-signal health_changed()
-#@export var current_health : float = stats
 
+signal health_changed()
+@export var bar_health : float = current_health:
+	set(value):
+		bar_health = value
 
 
 func _ready():
-	pass
+	print(stats.ddd)
+	print(bar_health)
 
 
 func _process(_delta: float) -> void:
@@ -43,6 +40,7 @@ func _process(_delta: float) -> void:
 	handle_animation()
 	enemy_attack()
 	die()
+	_init()
 
 
 func _physics_process(_delta: float) -> void:
@@ -135,7 +133,7 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_in_attack_range and enemy_attack_cooldown:
-		stats.health -= 20
+		stats.max_health -= 20
 		health_changed.emit()
 		enemy_attack_cooldown = false
 		$DamageCooldown.start()
@@ -146,9 +144,15 @@ func _on_damage_cooldown_timeout():
 
 
 func die():
-	if stats.health <= 0.0:
+	if stats.max_health <= 0.0:
 		player_alive = false
-		self.queue_free()
+		get_tree().change_scene_to_file("res://Scenes/gameover.tscn")
 
 func setup_stats():
-	current_health = stats.health
+	current_health = stats.max_health
+
+func _init():
+	#current_health = stats.max_health
+	#current_damage = stats.damage
+	#current_defense = stats.defense
+	pass

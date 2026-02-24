@@ -8,5 +8,4 @@ func _ready():
 	health_update()
 
 func health_update():
-	#value = target.current_health
-	pass
+	value = target.bar_health

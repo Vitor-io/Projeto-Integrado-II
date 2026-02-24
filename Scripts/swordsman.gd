@@ -6,6 +6,8 @@ class_name Swordsman
 @onready var nav_agent := $NavigationAgent2D
 @onready var health_bar := $ProgressBar
 @export var stats : Resource
+var normal_color = Color(1.0, 1.0, 1.0, 1.0)
+var damage_color = Color(1.0, 0.259, 0.188, 0.769)
 var player_ref : Player_test_class
 var player : Node2D
 var being_attacked = false
@@ -28,12 +30,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#nav_agent.target_position = player_ref.position
 	#velocity = position.direction_to(nav_agent.get_next_path_position()) * stats.speed
-	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * stats.speed
-	if (player.position.x - position.x) > 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.flip_h = false
+	if player:
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * stats.speed
+		if (player.position.x - position.x) > 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 	move_and_slide()
 	animate()
 	take_damage()
