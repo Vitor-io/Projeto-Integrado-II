@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://bvlux6ifb3p6n"]
+[gd_scene load_steps=35 format=4 uid="uid://bvlux6ifb3p6n"]
 
 [ext_resource type="PackedScene" uid="uid://clqv27p71woh7" path="res://Scenes/Players/player_test.tscn" id="1_hdqny"]
 [ext_resource type="PackedScene" uid="uid://d1gppnxva7idq" path="res://Scenes/hud.tscn" id="1_nxy5b"]
 [ext_resource type="PackedScene" uid="uid://ck51jyut8ax4r" path="res://Scenes/health_bar.tscn" id="2_whl2g"]
 [ext_resource type="Texture2D" uid="uid://burmoxhst50v0" path="res://Assets/Terrain/Tilemap_color1.png" id="3_a804s"]
+[ext_resource type="Texture2D" uid="uid://cheejv1bq6oow" path="res://Assets/AssetsNossos/Mapa/tileset.png" id="4_t57bu"]
 [ext_resource type="Script" uid="uid://cgl8s1kr8b67y" path="res://Scripts/player_stats.gd" id="5_tcge7"]
 [ext_resource type="PackedScene" uid="uid://dwasvj1tk6k82" path="res://Scenes/Enemys/swordsman.tscn" id="5_tps07"]
 [ext_resource type="Script" uid="uid://ch40jkx0ap5rw" path="res://enemy_stats.gd" id="5_whl2g"]
@@ -319,6 +320,23 @@ texture_region_size = Vector2i(64, 64)
 8:7/0 = 0
 9:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfw46"]
+texture = ExtResource("4_t57bu")
+texture_region_size = Vector2i(64, 64)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:0/size_in_atlas = Vector2i(2, 1)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_tps07"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 4
@@ -328,6 +346,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_nxy5b")
+sources/2 = SubResource("TileSetAtlasSource_gfw46")
 
 [sub_resource type="Resource" id="Resource_jci2a"]
 resource_local_to_scene = true
@@ -354,6 +373,7 @@ metadata/_custom_type_script = "uid://ch40jkx0ap5rw"
 [node name="HUD" parent="." instance=ExtResource("1_nxy5b")]
 
 [node name="HealthBar" parent="HUD" node_paths=PackedStringArray("target") instance=ExtResource("2_whl2g")]
+visible = false
 show_percentage = true
 target = NodePath("../../Player_test")
 

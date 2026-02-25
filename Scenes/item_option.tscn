@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://icislsg5uqub"]
+
+[ext_resource type="Script" uid="uid://dlheojseb4i0l" path="res://Scenes/item_option.gd" id="1_61o2r"]
+[ext_resource type="Texture2D" uid="uid://cxta6ej6opt7w" path="res://AssetsLoja/loja.cruz.png" id="1_kkdif"]
+
+[node name="ItemOption" type="ColorRect"]
+process_mode = 2
+custom_minimum_size = Vector2(100, 100)
+offset_right = 180.0
+offset_bottom = 180.0
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+script = ExtResource("1_61o2r")
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 19.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kkdif")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

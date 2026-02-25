@@ -12,6 +12,8 @@ func _process(delta):
 
 
 func _on_retry_pressed():
+	global.player_level = 1
+	global.player_exp = 0
 	get_tree().change_scene_to_file("res://Scenes/nível_teste.tscn")
 
 

@@ -1,0 +1,171 @@
+[gd_scene load_steps=22 format=3 uid="uid://c4ah1gmhamgyy"]
+
+[ext_resource type="Texture2D" uid="uid://dla35xnavxdgi" path="res://Assets/AssetsNossos/Cerbero/Cerberoanim-Sheet.png" id="1_oergg"]
+[ext_resource type="Script" path="res://Assets/AssetsNossos/Cerbero/cerbero.gd" id="1_pdlii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc5e1"]
+atlas = ExtResource("1_oergg")
+region = Rect2(0, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kq7p"]
+atlas = ExtResource("1_oergg")
+region = Rect2(217, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bn75"]
+atlas = ExtResource("1_oergg")
+region = Rect2(434, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksynq"]
+atlas = ExtResource("1_oergg")
+region = Rect2(651, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcgue"]
+atlas = ExtResource("1_oergg")
+region = Rect2(868, 492, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2hqb"]
+atlas = ExtResource("1_oergg")
+region = Rect2(0, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjnnd"]
+atlas = ExtResource("1_oergg")
+region = Rect2(217, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rif5l"]
+atlas = ExtResource("1_oergg")
+region = Rect2(434, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v850"]
+atlas = ExtResource("1_oergg")
+region = Rect2(651, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcvet"]
+atlas = ExtResource("1_oergg")
+region = Rect2(868, 164, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pbl"]
+atlas = ExtResource("1_oergg")
+region = Rect2(0, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ive4"]
+atlas = ExtResource("1_oergg")
+region = Rect2(217, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72m17"]
+atlas = ExtResource("1_oergg")
+region = Rect2(434, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ei06"]
+atlas = ExtResource("1_oergg")
+region = Rect2(651, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a3pu"]
+atlas = ExtResource("1_oergg")
+region = Rect2(868, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwe2"]
+atlas = ExtResource("1_oergg")
+region = Rect2(1085, 328, 217, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yft0"]
+atlas = ExtResource("1_oergg")
+region = Rect2(1302, 328, 217, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlesl"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_sc5e1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2kq7p")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7bn75")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ksynq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcgue")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2hqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjnnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rif5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v850")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcvet")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3pbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ive4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72m17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ei06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a3pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prwe2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yft0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1pho2"]
+radius = 63.06346
+
+[node name="Cerbero" type="CharacterBody2D"]
+script = ExtResource("1_pdlii")
+
+[node name="cerbero" type="Node2D" parent="."]
+
+[node name="animcerbero" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jlesl")
+animation = &"idle"
+autoplay = "attack"
+frame_progress = 0.45225003
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
+shape = SubResource("CircleShape2D_1pho2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="frame_changed" from="animcerbero" to="cerbero" method="_on_animcerbero_frame_changed"]

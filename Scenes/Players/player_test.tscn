@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://clqv27p71woh7"]
+[gd_scene load_steps=15 format=3 uid="uid://clqv27p71woh7"]
 
 [ext_resource type="Script" uid="uid://d0hf5inged82p" path="res://Scripts/player_test.gd" id="1_s7djo"]
 [ext_resource type="Script" uid="uid://cgl8s1kr8b67y" path="res://Scripts/player_stats.gd" id="2_4yt4t"]
 [ext_resource type="Texture2D" uid="uid://434a0beg636" path="res://Assets/characters/ataque1.png" id="3_4yt4t"]
+[ext_resource type="Texture2D" uid="uid://bhdo8wr8dgnb1" path="res://AssetsLoja/fundo.loja.png" id="4_7vfsu"]
 
 [sub_resource type="Resource" id="Resource_7vfsu"]
 resource_local_to_scene = true
@@ -272,6 +273,42 @@ position = Vector2(-7, 3)
 shape = SubResource("CapsuleShape2D_4yt4t")
 
 [node name="DamageCooldown" type="Timer" parent="."]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="Shop" type="Control" parent="UILayer"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShopTexture" type="TextureRect" parent="UILayer/Shop"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1200.0
+offset_right = 2352.0
+offset_bottom = 648.0
+texture = ExtResource("4_7vfsu")
+
+[node name="ShopPanel" type="Panel" parent="UILayer/Shop"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1548.0
+offset_top = 74.0
+offset_right = 2048.0
+offset_bottom = 574.0
+
+[node name="ItemOptions" type="BoxContainer" parent="UILayer/Shop/ShopPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.094000004
+anchor_top = 0.07
+anchor_right = 0.384
+anchor_bottom = 0.372
 
 [connection signal="body_entered" from="Sprite/Attack1Hitbox" to="." method="_on_attack_1_hitbox_body_entered"]
 [connection signal="body_exited" from="Sprite/Attack1Hitbox" to="." method="_on_attack_1_hitbox_body_exited"]

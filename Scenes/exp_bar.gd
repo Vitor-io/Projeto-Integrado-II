@@ -17,3 +17,6 @@ func check_level_up():
 	while global.player_exp >= global.exp_threshold[global.player_level]:
 		global.player_exp -= global.exp_threshold[global.player_level]
 		global.player_level += 1
+		global.level_changed.emit(global.player_level)
+		if global.player_level >= global.exp_threshold.size() - 1:
+			global.boss_spawn_requested.emit()

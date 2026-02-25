@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://chsk05kyotoi5"]
+
+[ext_resource type="Texture2D" uid="uid://crf8kh58bwtrb" path="res://Assets/AssetsNossos/mosntros/lostwhisper-Sheet.png" id="1_8v8td"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63br1"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(0, 0, 40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owddy"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(40, 0, 40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moobs"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(80, 0, 40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8vnx"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(120, 0, 40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wluh1"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(160, 0, 40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ob5v"]
+atlas = ExtResource("1_8v8td")
+region = Rect2(200, 0, 40, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf72v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63br1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owddy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moobs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8vnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wluh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ob5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LostWhisper" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xf72v")
+frame = 2
+frame_progress = 0.3898797
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

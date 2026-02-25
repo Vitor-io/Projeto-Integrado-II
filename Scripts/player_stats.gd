@@ -6,7 +6,6 @@ class_name player_stats
 @export var defense : float = 0.0
 @export var speed : float = 300.0
 @export var hp_regen : float = 20.0
+@export var exp_multiplier : float = 1.0
 
-var current_health : float = 0.0
-
-var ddd = 1000
+#var ddd = 1000
